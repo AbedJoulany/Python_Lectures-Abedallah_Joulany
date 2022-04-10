@@ -1,0 +1,36 @@
+def is_perfect(n):
+    """function to check if the number is a perfect slice share
+
+        Parameters:
+        argument1 (int): any number 
+
+        Returns:
+        boolean : if the number is a perfect slice share
+
+       """
+    return sum ([i for i in range (1, n) if not n % i]) == n
+
+
+def print_all_numbers():
+    """infinite generator for numbers starting from 1
+
+          Parameters:
+          argument1 (int): any number 
+
+          Returns:
+          int: the generated number
+
+         """
+    a = 0
+    while True:  # תמיד מתקיים
+        a = a + 1
+        yield a
+
+
+if __name__ == '__main__':
+    # get an iterator for the generator
+    generator_iterator = print_all_numbers ()
+    # iterate over the numbers
+    for number in generator_iterator:
+        if is_perfect (number):
+            print (number)
